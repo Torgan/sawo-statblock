@@ -1,10 +1,12 @@
-// src/components/Source.tsx
+// src/components/Destination.tsx
 
+import * as React from 'react';
 import TextareaCard from './TextareaCard';
 
-class Destination extends TextareaCard {
-  name: string = 'Destination statblock';
-  id: string = 'destination';
-}
+const Destination: React.FC<{ value: string }> = ({ value }) => {
+  return (
+    <TextareaCard name="Destination statblock" id="destination" value={value} />
+  );
+};
 
 export default Destination;
