@@ -1,10 +1,9 @@
 // src/components/Source.tsx
-
+import * as React from 'react';
 import TextareaCard from './TextareaCard';
 
-class Source extends TextareaCard {
-  name: string = 'Source statblock';
-  id: string = 'source';
-}
+const Source: React.FC = () => {
+  return <TextareaCard name="Source statblock" id="source" />;
+};
 
 export default Source;
