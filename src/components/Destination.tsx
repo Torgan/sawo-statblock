@@ -2,26 +2,26 @@
 
 import * as React from 'react';
 import TextareaCard from './TextareaCard';
-import transformer, { loadConfig } from '../transform/transform';
+import transform, { loadSkillConfig } from '../transformer/transform';
 
 const Destination: React.FC<{ value: string }> = ({ value }) => {
-  const [config, setConfig] = React.useState([] as any[]);
+  const [skillConfig, setConfig] = React.useState([] as any[]);
 
   React.useEffect(() => {
     const getConfig = async () => {
-      const { data } = await loadConfig();
+      const { data } = await loadSkillConfig();
       setConfig(data);
     };
-    if (config.length === 0) {
+    if (skillConfig.length === 0) {
       getConfig();
     }
-  }, [config]);
+  }, [skillConfig]);
 
   return (
     <TextareaCard
       name="Destination statblock"
       id="destination"
-      value={transformer(value, config as [string, string][])}
+      value={transform(value, skillConfig as [string, string][])}
     />
   );
 };
