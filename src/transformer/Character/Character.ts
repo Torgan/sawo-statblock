@@ -1,16 +1,17 @@
 import { Attributes } from "./Core/Attributes";
 
 export class Character {
-  attributes : Attributes = new Attributes
-
-  public constructor() {
-  }
+  attributes : Attributes = new Attributes()
 
   public statblock() : string {
     return this.attributes.statblock();
   }
 
-  public parse(value: string) {
-    this.attributes = Attributes.parse(value)
+  static parse(value: string) : Character {
+    let character: Character = new Character()
+
+    character.attributes = Attributes.parse(value)
+
+    return character
   }
 } 
