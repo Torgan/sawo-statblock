@@ -17,11 +17,16 @@ const Destination: React.FC<{ value: string }> = ({ value }) => {
     }
   }, [skillConfig]);
 
-  return (
+  return skillConfig.length > 0 ? (
     <TextareaCard
       name="Destination statblock"
       id="destination"
       value={transform(value, skillConfig as [string, string][])}
+    />
+  ) : (
+    <TextareaCard
+      name="Destination statblock"
+      id="destination"
     />
   );
 };
